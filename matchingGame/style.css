@@ -12,6 +12,10 @@
     vertical-align: middle;
 }
 
+h1 {
+    text-align: center;
+}
+
 td {
     width: 100px;
     height: 100px;
@@ -33,8 +37,8 @@ img.card {
     overflow: hidden;
 }
 
-.card-container.flipped .card {
-    transform: rotateY(180deg);
+.card.flipped {
+    transform: rotateY(0deg);
 }
 
 .card {
@@ -50,6 +54,9 @@ img.card {
 }
 
 .card-back {
+    background-image: url('../images/Tigger.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     background-color: #dcbe05;
     position: absolute;
     width: 100%;
