@@ -10,12 +10,6 @@ $(document).ready(function() {
         '../images/icons8-horse-filled-100.png'
     ];
 
-    $(document).ready(function() {
-        $('.card-back').css('background-image', 'url(Tigger.png)');
-        console.log("Background image set!");
-    });
-
-
     const allImages = images.concat(images);
 
     function shuffle(array) {
@@ -29,13 +23,13 @@ $(document).ready(function() {
     }
 
     const shuffledImages = shuffle(allImages);
-
     let flippedCards = [];
+
+    $('.card-back').css('background-image', 'url(Tigger.png)');
+    console.log("Background image set!");
 
     $('td').each(function(index) {
         $(this).html('<div class="card-container"><img class="card" src="' + shuffledImages[index] + '" alt="animal image"><div class="card-back"></div></div>');
-
-
     }).on('click', function() {
         console.log("Card clicked!");
         const card = $(this).find('.card');
@@ -43,7 +37,6 @@ $(document).ready(function() {
             card.addClass('flipped');
             flippedCards.push(card);
         }
-
     });
 
     $('#continue').on('click', function() {
@@ -65,5 +58,4 @@ $(document).ready(function() {
         // Reset the flippedCards array
         flippedCards = [];
     });
-
 });
