@@ -32,6 +32,10 @@ img.card {
     position: relative;
 }
 
+.card-container.flipped .card {
+    transform: rotateY(180deg);
+}
+
 .card {
     width: 100%;
     height: 100%;
