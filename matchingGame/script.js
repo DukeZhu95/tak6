@@ -31,23 +31,33 @@ $(document).ready(function() {
 
 
     }).on('click', function() {
+        console.log("Card clicked!");
         const card = $(this).find('.card');
         if (flippedCards.length < 2 && !card.hasClass('flipped')) {
             card.addClass('flipped');
             flippedCards.push(card);
         }
 
-        if (flippedCards.length === 2) {
-            setTimeout(function() {
-                if (flippedCards.length !== 2) return;
+    });
 
-                if (flippedCards[0].attr('src') !== flippedCards[1].attr('src')) {
-                    flippedCards[0].removeClass('flipped');
-                    flippedCards[1].removeClass('flipped');
-                }
-                flippedCards = [];
-            }, 1000);
+    $('#continue').on('click', function() {
+        if (flippedCards.length !== 2) return; // Ensure two cards are flipped
+
+        const card1 = flippedCards[0];
+        const card2 = flippedCards[1];
+
+        if (card1.attr('src') === card2.attr('src')) {
+            // If the cards match, hide them
+            card1.parent().hide();
+            card2.parent().hide();
+        } else {
+            // If the cards don't match, flip them back
+            card1.removeClass('flipped');
+            card2.removeClass('flipped');
         }
 
+        // Reset the flippedCards array
+        flippedCards = [];
     });
+
 });
