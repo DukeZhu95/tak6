@@ -31,10 +31,10 @@ $(document).ready(function() {
 
 
     }).on('click', function() {
-        const cardContainer = $(this).find('.card-container');
-        if (flippedCards.length < 2 && !cardContainer.hasClass('flipped')) {
-            cardContainer.addClass('flipped');
-            flippedCards.push(cardContainer);
+        const card = $(this).find('.card');
+        if (flippedCards.length < 2 && !card.hasClass('flipped')) {
+            card.addClass('flipped');
+            flippedCards.push(card);
         }
 
         if (flippedCards.length === 2) {
