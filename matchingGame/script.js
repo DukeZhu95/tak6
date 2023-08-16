@@ -27,12 +27,14 @@ $(document).ready(function() {
     let flippedCards = [];
 
     $('td').each(function(index) {
-        $(this).html('<img src="' + shuffledImages[index] + '" alt="animal image">');
+        $(this).html('<div class="card-container"><img class="card" src="' + shuffledImages[index] + '" alt="animal image"><div class="card-back"></div></div>');
+
+
     }).on('click', function() {
-        const cardImage = $(this).find('img.card');
-        if (flippedCards.length < 2 && !cardImage.hasClass('flipped')) {
-            cardImage.show().addClass('flipped');
-            flippedCards.push(cardImage);
+        const cardContainer = $(this).find('.card-container');
+        if (flippedCards.length < 2 && !cardContainer.hasClass('flipped')) {
+            cardContainer.addClass('flipped');
+            flippedCards.push(cardContainer);
         }
 
         if (flippedCards.length === 2) {
@@ -40,8 +42,8 @@ $(document).ready(function() {
                 if (flippedCards.length !== 2) return;
 
                 if (flippedCards[0].attr('src') !== flippedCards[1].attr('src')) {
-                    flippedCards[0].hide().removeClass('flipped');
-                    flippedCards[1].hide().removeClass('flipped');
+                    flippedCards[0].removeClass('flipped');
+                    flippedCards[1].removeClass('flipped');
                 }
                 flippedCards = [];
             }, 1000);
