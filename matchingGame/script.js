@@ -10,26 +10,25 @@ $(document).ready(function() {
         '../images/icons8-horse-filled-100.png'
     ];
 
-    // 创建一个包含所有图片两次的数组
     const allImages = images.concat(images);
 
-    // 洗牌函数
     function shuffle(array) {
         let currentIndex = array.length, randomIndex;
-
         while (currentIndex !== 0) {
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex--;
-
             [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
         }
-
         return array;
     }
 
+    const shuffledImages = shuffle(allImages);
+
     let flippedCards = [];
 
-    $('td').on('click', function() {
+    $('td').each(function(index) {
+        $(this).html('<img src="' + shuffledImages[index] + '" alt="animal image">');
+    }).on('click', function() {
         const cardImage = $(this).find('img.card');
         if (flippedCards.length < 2 && !cardImage.hasClass('flipped')) {
             cardImage.show().addClass('flipped');
@@ -38,20 +37,15 @@ $(document).ready(function() {
 
         if (flippedCards.length === 2) {
             setTimeout(function() {
+                if (flippedCards.length !== 2) return;
+
                 if (flippedCards[0].attr('src') !== flippedCards[1].attr('src')) {
                     flippedCards[0].hide().removeClass('flipped');
                     flippedCards[1].hide().removeClass('flipped');
                 }
                 flippedCards = [];
-            }, 1000); // 1秒后检查是否匹配
+            }, 1000);
         }
-    });
 
-    // 洗牌图片
-    const shuffledImages = shuffle(allImages);
-
-    // 将图片添加到表格中
-    $('td').each(function(index) {
-        $(this).html('<img src="../images/' + shuffledImages[index] + '" alt="animal image">');
     });
 });
