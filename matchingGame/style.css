@@ -44,6 +44,7 @@ img.card {
     transform-style: preserve-3d;
     transition: transform 0.5s;
     backface-visibility: hidden;
+    transform: rotateY(180deg);
     top: 0;
     left: 0;
 }
