@@ -10,6 +10,12 @@ $(document).ready(function() {
         '../images/icons8-horse-filled-100.png'
     ];
 
+    $(document).ready(function() {
+        $('.card-back').css('background-image', 'url(Tigger.png)');
+        console.log("Background image set!");
+    });
+
+
     const allImages = images.concat(images);
 
     function shuffle(array) {
