@@ -1,0 +1,30 @@
+#game table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#game td {
+    width: 25%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+}
+
+img.card {
+    max-width: 100%;
+    display: none;
+}
+
+#continue {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #2ECC71;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
